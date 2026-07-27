@@ -162,4 +162,11 @@ tests/
 
 ## Author
 
-Developed as a hands-on Microsoft Fabric enterprise learning project.
+
+
+Hi there! I'm **Jani Basha Shaik**, an experienced Data Engineer. Developed as a hands-on Microsoft Fabric enterprise learning project. Open to collaborating on projects and freelance roles. 
+
+Feel free to connect with me on the following platforms:
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/259janibasha)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:janibashashaik917@gmail.com)
