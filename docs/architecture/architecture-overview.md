@@ -88,7 +88,29 @@ The platform follows these principles:
 ```
 
 ---
+## Environment Strategy
 
+The Enterprise Market Analytics Platform (EMAP) is designed to support multiple Microsoft Fabric environments.
+
+| Environment | Workspace | Status |
+|------------|-----------|--------|
+| Development | EMAP-DEV | Active |
+| Testing | EMAP-TEST | Planned |
+| Production | EMAP-PROD | Planned |
+
+Development activities are performed in the EMAP-DEV workspace. Testing and Production workspaces will be introduced during the CI/CD implementation phase.
+
+---
+
+## Current Environment
+
+Current Workspace: EMAP-DEV
+
+License Type: Microsoft Fabric Free Trial
+
+Current Phase: Sprint 1 - Platform Foundation
+
+---
 # Future Enhancements
 
 - Metadata Framework
