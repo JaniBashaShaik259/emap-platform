@@ -117,7 +117,7 @@ AI Analytics
 
 | Sprint | Status |
 |---------|--------|
-| Sprint 1 - In Progress ✔ Repository ✔ Documentation ✔ Development Workspace ⬜ Lakehouse ⬜ Warehouse
+| Sprint 1 - Project Foundation | In Progress |
 | Sprint 2 - Yahoo Finance Ingestion | ⏳ Planned |
 | Sprint 3 - Bronze → Silver | ⏳ Planned |
 | Sprint 4 - Gold Layer | ⏳ Planned |
