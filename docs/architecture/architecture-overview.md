@@ -120,3 +120,13 @@ Current Phase: Sprint 1 - Platform Foundation
 - Monitoring Framework
 - AI Recommendation Engine
 - GitHub Actions CI/CD
+
+---
+## Processing Architecture
+
+The platform separates orchestration from processing.
+
+- Fabric Pipelines are responsible for orchestration, metadata management, scheduling, parameter passing, and logging.
+- Notebooks are responsible for data extraction, transformation, validation, and loading.
+
+This separation ensures that orchestration logic remains independent from processing logic, improving maintainability and reusability.
