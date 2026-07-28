@@ -1,4 +1,19 @@
-
+CREATE TABLE ctl_entity_config
+(
+    entity_id INT,
+    source_id INT,
+    entity_type STRING,
+    entity_code STRING,
+    entity_name STRING,
+    entity_group STRING,
+    exchange_code STRING,
+    is_active BOOLEAN,
+    created_date TIMESTAMP,
+    created_by STRING,
+    modified_date TIMESTAMP,
+    modified_by STRING
+);
+GO
 INSERT INTO ctl_entity_config (
     source_id,
     entity_type,
