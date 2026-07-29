@@ -106,6 +106,7 @@ Not Started
 Sprint 2 Deliverables
 
 By the end of this sprint, you'll have:
+
 GitHub
      │
      ▼
@@ -128,3 +129,31 @@ Bronze Lakehouse
      │
      ▼
 Audit Log
+
+---
+## Story 7 – Audit Logging Framework
+
+### Objective
+
+Implement a reusable audit logging framework capable of recording execution metadata for all Fabric notebooks and pipelines.
+
+### Implementation
+
+- Created audit_pipeline_run table
+- Implemented reusable logging utility notebook
+- Used Spark DataFrame writes
+- Used Delta Merge for UPSERT operations
+- Recorded execution metrics
+- Recorded processing status
+- Recorded row counts
+- Recorded execution duration
+
+### Design Decision
+
+Since Microsoft Fabric Lakehouse SQL Endpoints are optimized for analytical querying and are not intended for transactional write operations, audit logging is implemented using Spark Delta Merge statements.
+
+This design avoids unnecessary dependency on Fabric Warehouse while remaining scalable and production-ready.
+
+### Status
+
+Completed
