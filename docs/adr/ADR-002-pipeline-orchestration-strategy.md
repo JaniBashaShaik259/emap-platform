@@ -131,3 +131,44 @@ Pipeline updates Audit Tables
 ↓
 
 Pipeline completes
+
+# ADR-002
+
+## Title
+
+Fabric Pipelines for Orchestration
+
+---
+
+## Status
+
+Accepted
+
+---
+
+## Context
+
+The EMAP platform requires a centralized orchestration layer.
+
+---
+
+## Decision
+
+Microsoft Fabric Pipelines will be used only for orchestration.
+
+Business logic will be implemented inside Notebooks.
+
+---
+
+## Consequences
+
+Advantages
+
+- Reusable Pipelines
+- Simpler Maintenance
+- Metadata Driven
+- Better Error Handling
+
+Disadvantages
+
+- Additional Notebook dependency

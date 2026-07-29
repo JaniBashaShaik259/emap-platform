@@ -34,3 +34,97 @@ Build the first end-to-end ingestion pipeline using Yahoo Finance.
 - Pipeline reusable
 - Documentation updated
 - Code committed
+
+# Sprint 02
+
+## Goal
+
+Build the metadata-driven ingestion framework.
+
+---
+
+## User Stories
+
+Story 1
+
+Connect GitHub repository with Fabric Workspace.
+
+Status
+
+Not Started
+
+---
+
+Story 2
+
+Create Bronze Lakehouse folder structure.
+
+Status
+
+Not Started
+
+---
+
+Story 3
+
+Create generic ingestion notebook.
+
+Status
+
+Not Started
+
+---
+
+Story 4
+
+Create metadata-driven Pipeline.
+
+Status
+
+Not Started
+
+---
+
+Story 5
+
+Ingest first API source.
+
+Status
+
+Not Started
+
+---
+
+Story 6
+
+Implement pipeline logging.
+
+Status
+
+Not Started
+
+Sprint 2 Deliverables
+
+By the end of this sprint, you'll have:
+GitHub
+     │
+     ▼
+Fabric Pipeline
+     │
+     ▼
+Read Control Metadata
+     │
+     ▼
+ForEach Entity
+     │
+     ▼
+Notebook
+     │
+     ▼
+REST API
+     │
+     ▼
+Bronze Lakehouse
+     │
+     ▼
+Audit Log
