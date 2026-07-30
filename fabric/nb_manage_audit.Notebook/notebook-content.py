@@ -55,7 +55,7 @@ if p_status == "InProgress":
     ])
     audit_df = spark.createDataFrame(audit_data, schema=audit_schema)
     audit_df.write.mode("append").format("delta").saveAsTable("audit_pipeline_run")
-    print(f"📝 Run {p_run_id} marked as InProgress for pipeline {p_pipeline_name}.")
+    print(f"Run {p_run_id} marked as InProgress for pipeline {p_pipeline_name}.")
 
 elif p_status in ["Succeeded", "Failed"]:
     # 2. Use a safe MERGE that matches on run_id 
@@ -74,7 +74,7 @@ elif p_status in ["Succeeded", "Failed"]:
             INSERT (run_id, pipeline_name, layer_name, status, start_time, end_time, error_message, created_date)
             VALUES ('{p_run_id}', '{p_pipeline_name}', 'BRONZE', '{p_status}', current_timestamp(), current_timestamp(), {f"'{p_error_message}'" if p_error_message else "NULL"}, current_timestamp())
     """)
-    print(f"📝 Run {p_run_id} completely updated to {p_status} for pipeline {p_pipeline_name}.")
+    print(f"Run {p_run_id} completely updated to {p_status} for pipeline {p_pipeline_name}.")
 
 
 # METADATA ********************

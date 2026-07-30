@@ -61,7 +61,7 @@ metadata_query = f"""
 meta_df = spark.sql(metadata_query).collect()
 
 if not meta_df:
-    raise Exception(f"❌ No active metadata configuration found for pipeline: {p_pipeline_name}")
+    raise Exception(f" No active metadata configuration found for pipeline: {p_pipeline_name}")
 
 # Extract values from our metadata database row
 base_url = meta_df[0]['base_url']
@@ -75,7 +75,7 @@ target_url = f"{base_url.rstrip('/')}/{endpoint.strip('/')}/{p_entity_code}"
 api_params = {"range": "1mo", "interval": "1d"}
 api_headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
 
-print(f"🌐 Dynamically built URL from metadata: {target_url}")
+print(f" Dynamically built URL from metadata: {target_url}")
 
 try:
     # 3. Execute the API Call
@@ -114,12 +114,12 @@ try:
             .mode("append") \
             .format("delta") \
             .saveAsTable(target_table)
-        print(f"✅ Success! Data for {p_entity_code} written to metadata target table: {target_table}")
+        print(f"Success! Data for {p_entity_code} written to metadata target table: {target_table}")
     else:
-        print(f"⚠️ No records found for entity: {p_entity_code}")
+        print(f" No records found for entity: {p_entity_code}")
 
 except Exception as e:
-    print(f"❌ Error during metadata run: {str(e)}")
+    print(f"Error during metadata run: {str(e)}")
 
 
 # METADATA ********************
