@@ -117,9 +117,9 @@ AI Analytics
 
 | Sprint | Status |
 |---------|--------|
-| Sprint 1 - Project Foundation | In Progress |
-| Sprint 2 - Yahoo Finance Ingestion | ⏳ Planned |
-| Sprint 3 - Bronze → Silver | ⏳ Planned |
+| Sprint 1 - Project Foundation | Completed |
+| Sprint 2 - Yahoo Finance Ingestion | Completed |
+| Sprint 3 - Bronze → Silver | In Progress |
 | Sprint 4 - Gold Layer | ⏳ Planned |
 | Sprint 5 - Metadata Framework | ⏳ Planned |
 | Sprint 6 - Reconciliation Framework | ⏳ Planned |
@@ -156,7 +156,7 @@ tests/
 
 ## Current Status
 
-🚧 Currently in Sprint 1 – Project Foundation
+🚧 Sprint 3 - Bronze → Silver
 
 ---
 
