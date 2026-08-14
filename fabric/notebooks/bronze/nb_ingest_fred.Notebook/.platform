@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "nb_ingest_fred"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "256bb9b5-956c-8f16-44b8-a3a74c9b4306"
+  }
+}
