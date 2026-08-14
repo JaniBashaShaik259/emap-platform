@@ -59,50 +59,110 @@
           "secureOutput": false
         },
         "name": "Get_Active_Entities",
-        "dependsOn": [
-          {
-            "activity": "Audit_Log_InProgress",
-            "dependencyConditions": [
-              "Succeeded"
-            ]
-          }
-        ]
+        "dependsOn": []
       },
       {
         "type": "ForEach",
         "typeProperties": {
+          "isSequential": false,
+          "batchCount": 2,
           "items": {
             "value": "@activity('Get_Active_Entities').output.value",
             "type": "Expression"
           },
           "activities": [
             {
-              "type": "TridentNotebook",
+              "type": "Switch",
               "typeProperties": {
-                "notebookId": "b832f019-b8ae-a456-441a-1f1532633831",
-                "workspaceId": "00000000-0000-0000-0000-000000000000",
-                "parameters": {
-                  "p_entity_code": {
-                    "value": {
-                      "value": "@item().entity_code",
-                      "type": "Expression"
-                    },
-                    "type": "string"
+                "on": {
+                  "value": "@string(item().source_id)",
+                  "type": "Expression"
+                },
+                "cases": [
+                  {
+                    "value": "1",
+                    "activities": [
+                      {
+                        "type": "TridentNotebook",
+                        "typeProperties": {
+                          "notebookId": "b832f019-b8ae-a456-441a-1f1532633831",
+                          "workspaceId": "00000000-0000-0000-0000-000000000000",
+                          "parameters": {
+                            "p_entity_code": {
+                              "value": {
+                                "value": "@item().entity_code",
+                                "type": "Expression"
+                              },
+                              "type": "string"
+                            },
+                            "p_pipeline_name": {
+                              "value": "pl_rest_ingest",
+                              "type": "string"
+                            }
+                          },
+                          "sessionTag": "1"
+                        },
+                        "policy": {
+                          "timeout": "0.12:00:00",
+                          "retry": 0,
+                          "retryIntervalInSeconds": 30,
+                          "secureInput": false,
+                          "secureOutput": false
+                        },
+                        "name": "Ingest_yfinance",
+                        "dependsOn": []
+                      }
+                    ]
                   },
-                  "p_pipeline_name": {
-                    "value": "pl_rest_ingest",
-                    "type": "string"
+                  {
+                    "value": "2",
+                    "activities": [
+                      {
+                        "type": "TridentNotebook",
+                        "typeProperties": {
+                          "notebookId": "256bb9b5-956c-8f16-44b8-a3a74c9b4306",
+                          "workspaceId": "00000000-0000-0000-0000-000000000000",
+                          "parameters": {
+                            "p_entity_code": {
+                              "value": {
+                                "value": "@item().entity_code",
+                                "type": "Expression"
+                              },
+                              "type": "string"
+                            },
+                            "p_source_id": {
+                              "value": "2",
+                              "type": "int"
+                            }
+                          },
+                          "sessionTag": "1"
+                        },
+                        "policy": {
+                          "timeout": "0.12:00:00",
+                          "retry": 0,
+                          "retryIntervalInSeconds": 30,
+                          "secureInput": false,
+                          "secureOutput": false
+                        },
+                        "name": "ingest_fred",
+                        "dependsOn": []
+                      }
+                    ]
                   }
-                }
+                ],
+                "defaultActivities": [
+                  {
+                    "type": "Fail",
+                    "typeProperties": {
+                      "message": "\"Encountered an invalid or unmapped Source ID\"",
+                      "errorCode": "100"
+                    },
+                    "name": "Fail1",
+                    "dependsOn": []
+                  }
+                ]
               },
-              "policy": {
-                "timeout": "0.12:00:00",
-                "retry": 0,
-                "retryIntervalInSeconds": 30,
-                "secureInput": false,
-                "secureOutput": false
-              },
-              "name": "Ingest_Loop_Ticker",
+              "name": "Switch_Source",
               "dependsOn": []
             }
           ]
@@ -120,8 +180,8 @@
       {
         "type": "TridentNotebook",
         "typeProperties": {
-          "notebookId": "749a6823-e5fb-8691-4ab0-aa04a573f124",
-          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "notebookId": "a573f124-aa04-4ab0-8691-e5fb749a6823",
+          "workspaceId": "f8b434ab-5f87-42e7-995a-7913dd0a3abf",
           "parameters": {
             "p_run_id": {
               "value": {
@@ -155,6 +215,8 @@
           "secureOutput": false
         },
         "name": "Audit_Log_InProgress",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
         "dependsOn": []
       },
       {
